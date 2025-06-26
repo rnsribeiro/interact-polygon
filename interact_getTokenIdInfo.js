@@ -51,6 +51,88 @@ async function getProvider() {
   }
 }
 
+// Função para buscar informações de um tokenId específico
+async function getTokenIdInfo(contract, tokenId, fromBlock = 23149844, toBlock = 'latest') {
+  try {
+    // Validar formato do tokenId (bytes32)
+    if (!/^0x[a-fA-F0-9]{64}$/.test(tokenId)) {
+      throw new Error('TokenId inválido: deve ser um valor bytes32 com 64 caracteres hexadecimais (com prefixo 0x).');
+    }
+
+    console.log(`Buscando informações para o tokenId: ${tokenId}`);
+
+    // Verificar se o tokenId está registrado
+    const isRegistered = await contract.isTokenRegistered(tokenId);
+    if (!isRegistered) {
+      console.log(`TokenId ${tokenId} não está registrado.`);
+      return { tokenId, isRegistered: false };
+    }
+
+    // Obter o nftId associado
+    const nftId = await contract.getNFTId(tokenId);
+    console.log('NFT ID:', nftId.toString());
+
+    // Obter o proprietário do NFT
+    const owner = await contract.ownerOf(nftId);
+    console.log('Proprietário do NFT:', owner);
+
+    // Obter o número de eventos associados ao nftId
+    const eventCount = await contract.eventCounts(nftId);
+    console.log(`Número de eventos associados: ${eventCount.toString()}`);
+
+    // Buscar eventos EventLogged para o tokenId
+    console.log(`Buscando eventos EventLogged para tokenId ${tokenId} de ${fromBlock} até ${toBlock}...`);
+    const filter = contract.filters.EventLogged(null, tokenId);
+    const events = await contract.queryFilter(filter, fromBlock, toBlock);
+
+    console.log(`Encontrados ${events.length} eventos EventLogged`);
+    const eventDetails = [];
+    
+    // Consultar mensagens dos eventos
+    for (let i = 0; i < eventCount; i++) {
+      try {
+        const message = await contract.getEventMessage(nftId, i);
+        eventDetails.push({
+          eventIndex: i,
+          message,
+          // Encontrar o evento correspondente para obter timestamp e outras informações
+          eventData: events.find(e => e.args.eventIndex.toNumber() === i) || null
+        });
+      } catch (err) {
+        console.warn(`Erro ao obter mensagem do evento ${i}: ${err.message}`);
+      }
+    }
+
+    // Exibir detalhes dos eventos
+    if (eventDetails.length === 0) {
+      console.log('Nenhum evento encontrado para este tokenId.');
+    } else {
+      console.log('Eventos associados:');
+      eventDetails.forEach(({ eventIndex, message, eventData }) => {
+        console.log({
+          eventIndex,
+          message,
+          timestamp: eventData ? new Date(Number(eventData.args.timestamp) * 1000).toISOString() : 'N/A',
+          blockNumber: eventData ? eventData.blockNumber : 'N/A',
+          transactionHash: eventData ? eventData.transactionHash : 'N/A'
+        });
+      });
+    }
+
+    return {
+      tokenId,
+      isRegistered: true,
+      nftId: nftId.toString(),
+      owner,
+      eventCount: eventCount.toString(),
+      events: eventDetails
+    };
+  } catch (error) {
+    console.error(`Erro ao buscar informações do tokenId ${tokenId}:`, error.message);
+    return { tokenId, isRegistered: false, error: error.message };
+  }
+}
+
 // Função principal para interagir com o contrato
 async function interactWithContract() {
   try {
@@ -74,54 +156,12 @@ async function interactWithContract() {
     const contractOwner = await contract.owner();
     console.log('Dono do contrato:', contractOwner);
 
-    // Exemplo 1: Calcular tokenId (HASH(EPC || TID))
-    const epc = '0x3039ABCDEF1234567809'; // Exemplo do documento
-    const tid = '0xE2003412012345678900'; // Exemplo do documento
-    const tokenId = ethers.keccak256(ethers.concat([epc, tid]));
-    console.log('TokenId calculado:', tokenId);
-
-    // Exemplo 2: Verificar se tokenId está registrado
-    const isRegistered = await contract.isTokenRegistered(tokenId);
-    console.log('TokenId registrado?', isRegistered);
-
-    if (!isRegistered) {
-      // Exemplo 3: Registrar um novo NFT
-      console.log('Registrando NFT...');
-      const tx = await contract.registerNFT(tokenId, { gasLimit: 200000 });
-      console.log('Tx enviada:', tx.hash);
-      const receipt = await tx.wait();
-      console.log('Receipt:', JSON.stringify(receipt, null, 2)); // Debug
-      console.log('NFT registrado! Tx Hash:', receipt.hash || tx.hash);
-      
-      // Exemplo 4: Obter o NFT ID
-      const nftId = await contract.getNFTId(tokenId);
-      console.log('NFT ID:', nftId.toString());
-    }
-
-    // Exemplo 5: Registrar um evento com mensagem
-    console.log('Registrando evento...');
-    const message = 'Leitura NFC em 23/06/2025';
-    const txEvent = await contract.logEvent(tokenId, message, { gasLimit: 200000 });
-    console.log('Tx evento enviada:', txEvent.hash);
-    const receiptEvent = await txEvent.wait();
-    console.log('Receipt evento:', JSON.stringify(receiptEvent, null, 2)); // Debug
-    console.log('Evento registrado! Tx Hash:', receiptEvent.hash || txEvent.hash);
-
-    // Exemplo 6: Consultar mensagem de evento
-    const nftId = await contract.getNFTId(tokenId);
-    const eventIndex = 0; // Primeiro evento
-    const eventMessage = await contract.getEventMessage(nftId, eventIndex);
-    console.log('Mensagem do evento:', eventMessage);
-
-    // Exemplo 7: Consultar proprietário do NFT
-    const owner = await contract.ownerOf(nftId);
-    console.log('Proprietário do NFT:', owner);
-
-    // Exemplo 8: Escutar eventos em tempo real (opcional)
-    console.log('Escutando eventos EventLogged...');
-    contract.on('EventLogged', (nftId, tokenId, eventIndex, message, timestamp) => {
-    console.log(`Evento detectado: NFT ${nftId}, Mensagem: ${message}, Timestamp: ${timestamp}`);
-    });
+    // Exemplo: Buscar informações de um tokenId específico
+    //               0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b
+    const tokenId = '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b'; // Substitua pelo tokenId desejado
+                     
+    const tokenInfo = await getTokenIdInfo(contract, tokenId);
+    console.log('Informações do tokenId:', JSON.stringify(tokenInfo, null, 2));
 
   } catch (error) {
     console.error('Erro:', error.message);
