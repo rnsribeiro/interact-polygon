@@ -1,0 +1,237 @@
+Encontrados 4 eventos NFTRegistered
+NFTs registrados:
+{
+  tokenId: '0x717ce0807e1532f1bf04c39d3c1084626059639476bb692c2ec10aa01849039d',
+  nftId: '1',
+  timestamp: '2025-06-23T15:55:59.000Z',
+  blockNumber: 23149844,
+  transactionHash: '0x2a30b5adc1755590490a6d71dc17b593039c675809587b043a7bf0ac7f15b037'
+}
+{
+  tokenId: '0xe0841fbf91a16ac0849ce2d894cbf281ce70639bdf8c78cb4e16869ba405274c',
+  nftId: '2',
+  timestamp: '2025-06-23T18:28:07.000Z',
+  blockNumber: 23152895,
+  transactionHash: '0x3d4860f21a175e25ea1c630e0a2000da9b1d2d1b1a1ec9b1b45a855ccc191389'
+}
+{
+  tokenId: '0x301f34f46f4014cdbffc30504b6c7f676dfbaf23c3e1ed4f64c3d3bce412fe40',
+  nftId: '3',
+  timestamp: '2025-06-23T18:32:51.000Z',
+  blockNumber: 23153010,
+  transactionHash: '0xf309b625128c75adda3586a4b736fa5738bc79d2d722a4c363c00122997420ba'
+}
+{
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  nftId: '4',
+  timestamp: '2025-06-23T18:38:15.000Z',
+  blockNumber: 23153112,
+  transactionHash: '0x40dd66498be583784a6a1bc11693d1959bffca086f236099ce9a6ac8118f720e'
+}
+Encontrados 12 eventos EventLogged
+Eventos logados:
+{
+  nftId: '1',
+  tokenId: '0x717ce0807e1532f1bf04c39d3c1084626059639476bb692c2ec10aa01849039d',
+  eventIndex: '0',
+  message: 'Produzido o identificador na fábrica',
+  timestamp: '2025-06-23T16:01:47.000Z',
+  blockNumber: 23149952,
+  transactionHash: '0x8292a919e9b76027c53ffe27b86fab7ab2d931c9ddef593e3416181791bd6b82'
+}
+{
+  nftId: '1',
+  tokenId: '0x717ce0807e1532f1bf04c39d3c1084626059639476bb692c2ec10aa01849039d',
+  eventIndex: '1',
+  message: 'Nova mensagem de teste',
+  timestamp: '2025-06-23T16:05:33.000Z',
+  blockNumber: 23150030,
+  transactionHash: '0x6782300dee7ce28de3473bbcee701cc43c4f435550c4b7efe594f5eef7dd669b'
+}
+{
+  nftId: '1',
+  tokenId: '0x717ce0807e1532f1bf04c39d3c1084626059639476bb692c2ec10aa01849039d',
+  eventIndex: '2',
+  message: 'Criar evento',
+  timestamp: '2025-06-23T16:08:45.000Z',
+  blockNumber: 23150089,
+  transactionHash: '0x424ee2fec8e1267ea64aa22dc9535e32a1dcab3ecc5240c241c69dc918bbc1cf'
+}
+{
+  nftId: '2',
+  tokenId: '0xe0841fbf91a16ac0849ce2d894cbf281ce70639bdf8c78cb4e16869ba405274c',
+  eventIndex: '0',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-23T18:28:13.000Z',
+  blockNumber: 23152897,
+  transactionHash: '0x49205e4b4c98df0aa7338d939e6969cb36073d4cc65b39b83f49defe7b7abe8f'
+}
+{
+  nftId: '3',
+  tokenId: '0x301f34f46f4014cdbffc30504b6c7f676dfbaf23c3e1ed4f64c3d3bce412fe40',
+  eventIndex: '0',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-23T18:33:03.000Z',
+  blockNumber: 23153013,
+  transactionHash: '0x18e4200cb12f34da3f890e3f920c97435a6de13800f32a0f91b7c80dcf8ea5f8'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '0',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-23T18:38:27.000Z',
+  blockNumber: 23153115,
+  transactionHash: '0x876e5a578d2b72c7033bbbb2174cc211f84e4afe0ddbcb07b57b2147ef953959'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '1',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-24T00:18:37.000Z',
+  blockNumber: 23160947,
+  transactionHash: '0x824195e6eb9ae5c029580a44b61f55243d88416c86a63a539799a5e2296b079a'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '2',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-24T00:19:31.000Z',
+  blockNumber: 23160961,
+  transactionHash: '0x5d0654caa26f2641843b9cd2fdcf59a174fc2790a5aeda17324a11ffd7d91b08'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '3',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-25T12:01:10.000Z',
+  blockNumber: 23202119,
+  transactionHash: '0x0aa7e1612b618087ecb90b008b04d9cb68aab201f904e8ab4a7e0b7e6a07c70d'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '4',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-26T19:13:45.000Z',
+  blockNumber: 23224092,
+  transactionHash: '0x565ade06c3daba8c63d3032b00d2f168b119723a2e4e17ae134138e4e6d13edf'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '5',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-26T19:17:05.000Z',
+  blockNumber: 23224156,
+  transactionHash: '0x8e060a9e2387a5ff62962e2326a322bcd833c368c8b1e3456119703748610dd6'
+}
+{
+  nftId: '4',
+  tokenId: '0x05684e98b97de6ecac92666b7e2de26dbe8e15430504d4a2c70965c09bd2a70b',
+  eventIndex: '6',
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-26T19:43:55.000Z',
+  blockNumber: 23224655,
+  transactionHash: '0x0821a21d490b205b3be7dd47a48d60e2a15ad46d4ee5eb73426f71c8acd19ae0'
+}
+Mensagens de eventos armazenadas:
+{
+  nftId: '1',
+  eventIndex: 0,
+  message: 'Produzido o identificador na fábrica',
+  timestamp: '2025-06-23T16:01:47.000Z',
+  blockNumber: 23149952,
+  transactionHash: '0x8292a919e9b76027c53ffe27b86fab7ab2d931c9ddef593e3416181791bd6b82'
+}
+{
+  nftId: '1',
+  eventIndex: 1,
+  message: 'Nova mensagem de teste',
+  timestamp: '2025-06-23T16:05:33.000Z',
+  blockNumber: 23150030,
+  transactionHash: '0x6782300dee7ce28de3473bbcee701cc43c4f435550c4b7efe594f5eef7dd669b'
+}
+{
+  nftId: '1',
+  eventIndex: 2,
+  message: 'Criar evento',
+  timestamp: '2025-06-23T16:08:45.000Z',
+  blockNumber: 23150089,
+  transactionHash: '0x424ee2fec8e1267ea64aa22dc9535e32a1dcab3ecc5240c241c69dc918bbc1cf'
+}
+{
+  nftId: '2',
+  eventIndex: 0,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-23T18:28:13.000Z',
+  blockNumber: 23152897,
+  transactionHash: '0x49205e4b4c98df0aa7338d939e6969cb36073d4cc65b39b83f49defe7b7abe8f'
+}
+{
+  nftId: '3',
+  eventIndex: 0,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-23T18:33:03.000Z',
+  blockNumber: 23153013,
+  transactionHash: '0x18e4200cb12f34da3f890e3f920c97435a6de13800f32a0f91b7c80dcf8ea5f8'
+}
+{
+  nftId: '4',
+  eventIndex: 0,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-23T18:38:27.000Z',
+  blockNumber: 23153115,
+  transactionHash: '0x876e5a578d2b72c7033bbbb2174cc211f84e4afe0ddbcb07b57b2147ef953959'
+}
+{
+  nftId: '4',
+  eventIndex: 1,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-24T00:18:37.000Z',
+  blockNumber: 23160947,
+  transactionHash: '0x824195e6eb9ae5c029580a44b61f55243d88416c86a63a539799a5e2296b079a'
+}
+{
+  nftId: '4',
+  eventIndex: 2,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-24T00:19:31.000Z',
+  blockNumber: 23160961,
+  transactionHash: '0x5d0654caa26f2641843b9cd2fdcf59a174fc2790a5aeda17324a11ffd7d91b08'
+}
+{
+  nftId: '4',
+  eventIndex: 3,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-25T12:01:10.000Z',
+  blockNumber: 23202119,
+  transactionHash: '0x0aa7e1612b618087ecb90b008b04d9cb68aab201f904e8ab4a7e0b7e6a07c70d'
+}
+{
+  nftId: '4',
+  eventIndex: 4,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-26T19:13:45.000Z',
+  blockNumber: 23224092,
+  transactionHash: '0x565ade06c3daba8c63d3032b00d2f168b119723a2e4e17ae134138e4e6d13edf'
+}
+{
+  nftId: '4',
+  eventIndex: 5,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-26T19:17:05.000Z',
+  blockNumber: 23224156,
+  transactionHash: '0x8e060a9e2387a5ff62962e2326a322bcd833c368c8b1e3456119703748610dd6'
+}
+{
+  nftId: '4',
+  eventIndex: 6,
+  message: 'Leitura NFC em 23/06/2025',
+  timestamp: '2025-06-26T19:43:55.000Z',
+  blockNumber: 23224655,
+  transactionHash: '0x0821a21d490b205b3be7dd47a48d60e2a15ad46d4ee5eb73426f71c8acd19ae0'
+}
