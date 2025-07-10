@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('ssl-root-cas').inject();
 const { ethers } = require('ethers');
 
 // Importar o ABI do contrato
@@ -17,6 +18,7 @@ async function getProvider() {
   try {
     console.log('Inicializando JSON-RPC provider para Polygon Amoy (Alchemy)...');
     console.log('Testando Alchemy RPC URL:', ALCHEMY_RPC_URL.replace(ALCHEMY_API_KEY, '****'));
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; // Somente para testes
     const provider = new ethers.JsonRpcProvider(ALCHEMY_RPC_URL);
     
     // Verificar conexão e chain ID
